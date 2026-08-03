@@ -37,7 +37,7 @@ export function Logo({ className }: { className?: string }) {
 				/>
 			</svg>
 			<span className="text-2xl font-semibold tracking-wide translate-y-1">
-				Job Trackr
+				Job Tracker
 			</span>
 		</div>
 	)
