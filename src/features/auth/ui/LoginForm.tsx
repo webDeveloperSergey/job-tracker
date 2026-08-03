@@ -8,11 +8,11 @@ import { Label } from '@/shared/ui/shadcn/label'
 import { CardContent } from '@/shared/ui/shadcn/card'
 
 interface LoginFormProps {
-	children: ReactNode
+	children: (state: { isValid: boolean; isLoading: boolean }) => ReactNode
 }
 
 export function LoginForm({ children }: LoginFormProps) {
-	const { register, errors, onSubmit } = useLoginForm()
+	const { register, errors, onSubmit, isValid, isLoading } = useLoginForm()
 
 	return (
 		<form
@@ -57,7 +57,7 @@ export function LoginForm({ children }: LoginFormProps) {
 					</div>
 				</div>
 			</CardContent>
-			{children}
+			{children({ isValid, isLoading })}
 		</form>
 	)
 }

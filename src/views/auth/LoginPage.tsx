@@ -1,3 +1,6 @@
+'use client'
+
+import { Loader2 } from 'lucide-react'
 import { LoginForm } from '@/features/auth/ui/LoginForm'
 import { Button } from '@/shared/ui/shadcn/button'
 import {
@@ -26,21 +29,31 @@ export function LoginPage() {
 					<CardAction></CardAction>
 				</CardHeader>
 				<LoginForm>
-					<CardContent>
-						<div className="flex items-center gap-4">
-							<div className="h-px flex-1 bg-neutral-200" />
-							<span className="text-sm text-neutral-400">Or continue with</span>
-							<div className="h-px flex-1 bg-neutral-200" />
-						</div>
-					</CardContent>
-					<CardFooter className="flex-col gap-2">
-						<Button
-							type="submit"
-							className="w-full"
-						>
-							Login
-						</Button>
-					</CardFooter>
+					{({ isValid, isLoading }) => (
+						<>
+							<CardContent>
+								<div className="flex items-center gap-4">
+									<div className="h-px flex-1 bg-neutral-200" />
+									<span className="text-sm text-neutral-400">
+										Or continue with
+									</span>
+									<div className="h-px flex-1 bg-neutral-200" />
+								</div>
+							</CardContent>
+							<CardFooter className="flex-col gap-2">
+								<Button
+									type="submit"
+									className="w-full"
+									disabled={!isValid || isLoading}
+								>
+									{isLoading && (
+										<Loader2 className="size-4 animate-spin" />
+									)}
+									Login
+								</Button>
+							</CardFooter>
+						</>
+					)}
 				</LoginForm>
 			</Card>
 

@@ -8,11 +8,11 @@ import { Label } from '@/shared/ui/shadcn/label'
 import { CardContent } from '@/shared/ui/shadcn/card'
 
 interface SignupFormProps {
-	children: ReactNode
+	children: (state: { isValid: boolean; isLoading: boolean }) => ReactNode
 }
 
 export function SignupForm({ children }: SignupFormProps) {
-	const { register, errors, onSubmit } = useSignupForm()
+	const { register, errors, onSubmit, isValid, isLoading } = useSignupForm()
 
 	return (
 		<form
@@ -30,9 +30,7 @@ export function SignupForm({ children }: SignupFormProps) {
 							{...register('email')}
 						/>
 						{errors.email && (
-							<p className="text-sm text-destructive">
-								{errors.email.message}
-							</p>
+							<p className="text-sm text-destructive">{errors.email.message}</p>
 						)}
 					</div>
 					<div className="grid gap-2">
@@ -61,7 +59,7 @@ export function SignupForm({ children }: SignupFormProps) {
 					</div>
 				</div>
 			</CardContent>
-			{children}
+			{children({ isValid, isLoading })}
 		</form>
 	)
 }
