@@ -12,6 +12,7 @@ import {
 	CardHeader,
 	CardTitle
 } from '@/shared/ui/shadcn/card'
+import { Divider } from '@/shared/ui/DividerText'
 
 export function LoginCard() {
 	return (
@@ -30,13 +31,7 @@ export function LoginCard() {
 				{({ isValid, isLoading }) => (
 					<>
 						<CardContent>
-							<div className="flex items-center gap-4">
-								<div className="h-px flex-1 bg-neutral-200" />
-								<span className="text-sm text-neutral-400">
-									Or continue with
-								</span>
-								<div className="h-px flex-1 bg-neutral-200" />
-							</div>
+							<Divider text="Or continue with" />
 						</CardContent>
 						<CardFooter className="flex-col gap-2">
 							<Button
@@ -44,9 +39,7 @@ export function LoginCard() {
 								className="w-full"
 								disabled={!isValid || isLoading}
 							>
-								{isLoading && (
-									<Loader2 className="size-4 animate-spin" />
-								)}
+								{isLoading && <Loader2 className="size-4 animate-spin" />}
 								Login
 							</Button>
 						</CardFooter>

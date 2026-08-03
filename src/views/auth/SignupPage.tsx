@@ -13,13 +13,16 @@ export function SignupPage() {
 					Already have an account?
 				</span>
 
-				<Button variant="link">
-					<Link
-						href={ROUTES.auth.logIn}
-						className="text-sm underline"
-					>
-						Log in
-					</Link>
+				<Button
+					variant="link"
+					render={
+						<Link
+							href={ROUTES.auth.logIn}
+							className="text-sm underline"
+						/>
+					}
+				>
+					Log in
 				</Button>
 			</div>
 		</div>
