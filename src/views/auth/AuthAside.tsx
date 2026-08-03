@@ -3,15 +3,15 @@ import { cn } from '@/shared/lib/styles/utils'
 
 export function AuthAside() {
 	return (
-		<aside className="hidden md:flex flex-1 flex-col justify-between border-r border-neutral-200 p-12">
-			<Logo className="text-neutral-900" />
+		<aside className="hidden md:flex flex-1 flex-col justify-between border-r border-border p-12">
+			<Logo className="text-foreground" />
 
 			<div className="max-w-md">
-				<h1 className="text-4xl font-semibold leading-tight tracking-tight text-neutral-900">
+				<h1 className="text-4xl font-semibold leading-tight tracking-tight text-foreground">
 					Turn job hunting into
 					<br />a system you control.
 				</h1>
-				<p className="mt-4 text-neutral-500 text-sm leading-relaxed">
+				<p className="mt-4 text-muted-foreground text-sm leading-relaxed">
 					Track every application, every stage, every next step — in one board
 					built for the search, not against it.
 				</p>
@@ -44,7 +44,7 @@ function PipelineIllustration() {
 							key={cardIndex}
 							className={cn(
 								'w-14 h-8 rounded-md',
-								col.accent ? 'bg-amber-400' : 'bg-neutral-900',
+								col.accent ? 'bg-amber-400' : 'bg-foreground',
 								col.opacityClass
 							)}
 						/>

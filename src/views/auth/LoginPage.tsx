@@ -17,7 +17,10 @@ import Link from 'next/link'
 export function LoginPage() {
 	return (
 		<>
-			<Card className="w-full max-w-sm">
+			<Card
+				variant="ghost"
+				className="w-full max-w-sm"
+			>
 				<CardHeader>
 					<CardTitle>Login to your account</CardTitle>
 					<CardDescription>
@@ -73,7 +76,7 @@ export function LoginPage() {
 			</Card>
 
 			<div>
-				<span className="text-zinc-500 text-sm">Have an account?</span>
+				<span className="text-muted-foreground text-sm">Have an account?</span>
 
 				<Button variant="link">
 					<Link
