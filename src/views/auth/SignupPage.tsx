@@ -1,6 +1,3 @@
-// import { SignUpForm } from '@/features/auth'
-
-import { PasswordInput } from '@/shared/ui/PasswordInput'
 import { Button } from '@/shared/ui/shadcn/button'
 import {
 	Card,
@@ -11,10 +8,9 @@ import {
 	CardHeader,
 	CardTitle
 } from '@/shared/ui/shadcn/card'
-import { Input } from '@/shared/ui/shadcn/input'
-import { Label } from '@/shared/ui/shadcn/label'
 import { ROUTES } from '@/shared/config/routes'
 import Link from 'next/link'
+import { SignUpForm } from '@/features/auth/ui/SignUpForm'
 
 export function SignupPage() {
 	return (
@@ -31,33 +27,7 @@ export function SignupPage() {
 					<CardAction></CardAction>
 				</CardHeader>
 				<CardContent>
-					<form>
-						<div className="flex flex-col gap-6">
-							<div className="grid gap-2">
-								<Label htmlFor="email">Email</Label>
-								<Input
-									id="email"
-									type="email"
-									placeholder="m@example.com"
-									required
-								/>
-							</div>
-							<div className="grid gap-2">
-								<Label htmlFor="password">Password</Label>
-								<PasswordInput
-									id="password"
-									required
-								/>
-							</div>
-							<div className="grid gap-2">
-								<Label htmlFor="confirm-password">Confirm password</Label>
-								<PasswordInput
-									id="confirm-password"
-									required
-								/>
-							</div>
-						</div>
-					</form>
+					<SignUpForm />
 				</CardContent>
 				<CardContent>
 					<div className="flex items-center gap-4">
