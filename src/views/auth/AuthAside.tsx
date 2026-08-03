@@ -1,5 +1,5 @@
-import classNames from 'classnames'
 import { Logo } from '@/shared/ui/Logo'
+import { cn } from '@/shared/lib/styles/utils'
 
 export function AuthAside() {
 	return (
@@ -42,7 +42,7 @@ function PipelineIllustration() {
 					{Array.from({ length: col.count }).map((_, cardIndex) => (
 						<div
 							key={cardIndex}
-							className={classNames(
+							className={cn(
 								'w-14 h-8 rounded-md',
 								col.accent ? 'bg-amber-400' : 'bg-neutral-900',
 								col.opacityClass
