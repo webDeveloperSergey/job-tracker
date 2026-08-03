@@ -1,5 +1,6 @@
 // import { LoginForm } from '@/features/auth'
 
+import { PasswordInput } from '@/shared/ui/PasswordInput'
 import { Button } from '@/shared/ui/shadcn/button'
 import {
 	Card,
@@ -16,15 +17,15 @@ import Link from 'next/link'
 
 export function LoginPage() {
 	return (
-		<>
+		<div className="flex w-full flex-col items-center gap-6">
 			<Card
 				variant="ghost"
 				className="w-full max-w-sm"
 			>
 				<CardHeader>
-					<CardTitle>Login to your account</CardTitle>
-					<CardDescription>
-						Enter your email below to login to your account
+					<CardTitle className="text-3xl">Welcome back</CardTitle>
+					<CardDescription className="text-md">
+						Sign in to your account
 					</CardDescription>
 					<CardAction></CardAction>
 				</CardHeader>
@@ -50,14 +51,20 @@ export function LoginPage() {
 										Forgot your password?
 									</a>
 								</div>
-								<Input
+								<PasswordInput
 									id="password"
-									type="password"
 									required
 								/>
 							</div>
 						</div>
 					</form>
+				</CardContent>
+				<CardContent>
+					<div className="flex items-center gap-4">
+						<div className="h-px flex-1 bg-neutral-200" />
+						<span className="text-sm text-neutral-400">Or continue with</span>
+						<div className="h-px flex-1 bg-neutral-200" />
+					</div>
 				</CardContent>
 				<CardFooter className="flex-col gap-2">
 					<Button
@@ -66,16 +73,10 @@ export function LoginPage() {
 					>
 						Login
 					</Button>
-					<Button
-						variant="outline"
-						className="w-full"
-					>
-						Login with Google
-					</Button>
 				</CardFooter>
 			</Card>
 
-			<div>
+			<div className="flex items-center">
 				<span className="text-muted-foreground text-sm">Have an account?</span>
 
 				<Button variant="link">
@@ -87,6 +88,6 @@ export function LoginPage() {
 					</Link>
 				</Button>
 			</div>
-		</>
+		</div>
 	)
 }
