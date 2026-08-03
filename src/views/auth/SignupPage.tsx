@@ -1,3 +1,4 @@
+import { SignupForm } from '@/features/auth/ui/SignupForm'
 import { Button } from '@/shared/ui/shadcn/button'
 import {
 	Card,
@@ -10,7 +11,6 @@ import {
 } from '@/shared/ui/shadcn/card'
 import { ROUTES } from '@/shared/config/routes'
 import Link from 'next/link'
-import { SignUpForm } from '@/features/auth/ui/SignUpForm'
 
 export function SignupPage() {
 	return (
@@ -26,26 +26,25 @@ export function SignupPage() {
 					</CardDescription>
 					<CardAction></CardAction>
 				</CardHeader>
-				<CardContent>
-					<SignUpForm />
-				</CardContent>
-				<CardContent>
-					<div className="flex items-center gap-4">
-						<div className="h-px flex-1 bg-border" />
-						<span className="text-sm text-muted-foreground">
-							Or continue with
-						</span>
-						<div className="h-px flex-1 bg-border" />
-					</div>
-				</CardContent>
-				<CardFooter className="flex-col gap-2">
-					<Button
-						type="submit"
-						className="w-full"
-					>
-						Create account
-					</Button>
-				</CardFooter>
+				<SignupForm>
+					<CardContent>
+						<div className="flex items-center gap-4">
+							<div className="h-px flex-1 bg-border" />
+							<span className="text-sm text-muted-foreground">
+								Or continue with
+							</span>
+							<div className="h-px flex-1 bg-border" />
+						</div>
+					</CardContent>
+					<CardFooter className="flex-col gap-2">
+						<Button
+							type="submit"
+							className="w-full"
+						>
+							Create account
+						</Button>
+					</CardFooter>
+				</SignupForm>
 			</Card>
 
 			<div className="flex items-center">

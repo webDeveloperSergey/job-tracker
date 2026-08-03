@@ -25,24 +25,23 @@ export function LoginPage() {
 					</CardDescription>
 					<CardAction></CardAction>
 				</CardHeader>
-				<CardContent>
-					<LoginForm />
-				</CardContent>
-				<CardContent>
-					<div className="flex items-center gap-4">
-						<div className="h-px flex-1 bg-neutral-200" />
-						<span className="text-sm text-neutral-400">Or continue with</span>
-						<div className="h-px flex-1 bg-neutral-200" />
-					</div>
-				</CardContent>
-				<CardFooter className="flex-col gap-2">
-					<Button
-						type="submit"
-						className="w-full"
-					>
-						Login
-					</Button>
-				</CardFooter>
+				<LoginForm>
+					<CardContent>
+						<div className="flex items-center gap-4">
+							<div className="h-px flex-1 bg-neutral-200" />
+							<span className="text-sm text-neutral-400">Or continue with</span>
+							<div className="h-px flex-1 bg-neutral-200" />
+						</div>
+					</CardContent>
+					<CardFooter className="flex-col gap-2">
+						<Button
+							type="submit"
+							className="w-full"
+						>
+							Login
+						</Button>
+					</CardFooter>
+				</LoginForm>
 			</Card>
 
 			<div className="flex items-center">
