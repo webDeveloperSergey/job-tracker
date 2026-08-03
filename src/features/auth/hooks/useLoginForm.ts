@@ -6,6 +6,7 @@ import { loginSchema, type LoginFormValues } from '../model/loginSchema'
 import { useState } from 'react'
 import { createClient } from '@/shared/lib/supabase/client'
 import { useRouter } from 'next/navigation'
+import { ROUTES } from '@/shared/config/routes'
 
 export function useLoginForm() {
 	const router = useRouter()
@@ -38,7 +39,7 @@ export function useLoginForm() {
 		// router.refresh() заставляет Server Components перерендериться
 		// и подхватить новую сессию через createServerClient (shared/lib/supabase/server.ts)
 		router.refresh()
-		router.push('/board')
+		router.push(ROUTES.board)
 	})
 
 	return { register, errors, onSubmit, isValid, isLoading }
