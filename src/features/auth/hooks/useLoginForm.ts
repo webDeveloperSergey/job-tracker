@@ -14,7 +14,8 @@ export function useLoginForm() {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors, isValid }
+		formState: { errors, isValid },
+		setError
 	} = useForm<LoginFormValues>({
 		resolver: zodResolver(loginSchema),
 		mode: 'onChange'
@@ -34,6 +35,13 @@ export function useLoginForm() {
 		console.log('Login error:', error)
 
 		setIsLoading(false)
+
+		console.log(error?.message, 'error.message')
+
+		if (error) {
+			setError('root', { message: error.message })
+			return
+		}
 
 		// Логин прошёл успешно — Supabase сам записал cookie с сессией.
 		// router.refresh() заставляет Server Components перерендериться
