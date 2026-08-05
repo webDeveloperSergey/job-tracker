@@ -6,6 +6,7 @@ import { signupSchema, type SignupFormValues } from '../model/signupSchema'
 import { createClient } from '@/shared/lib/supabase/client'
 import { useState } from 'react'
 import { toast } from '@/shared/ui/shadcn/toast'
+import { generateAuthToasts } from '../model/toastMessages'
 
 export function useSignupForm() {
 	const {
@@ -29,21 +30,11 @@ export function useSignupForm() {
 		setIsLoading(false)
 
 		if (error) {
-			toast.add({
-				title: 'Signup failed',
-				description: error.message,
-				type: 'error'
-			})
+			generateAuthToasts('signup', 'error', error)
 			return
 		}
 
-		toast.add({
-			title: 'Signup successful',
-			description:
-				'You have successfully signed up. Please check your email to confirm your account.',
-			type: 'success'
-		})
-
+		generateAuthToasts('signup', 'success')
 		setIsSuccess(true)
 	})
 

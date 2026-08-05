@@ -8,6 +8,7 @@ import { createClient } from '@/shared/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import { ROUTES } from '@/shared/config/routes'
 import { toast } from '@/shared/ui/shadcn/toast'
+import { generateAuthToasts } from '../model/toastMessages'
 
 export function useLoginForm() {
 	const router = useRouter()
@@ -35,20 +36,11 @@ export function useLoginForm() {
 		setIsLoading(false)
 
 		if (error) {
-			toast.add({
-				title: 'Login failed',
-				description: error.message,
-				type: 'error'
-			})
-
+			generateAuthToasts('login', 'error', error)
 			return
 		}
 
-		toast.add({
-			title: 'Login successful',
-			description: 'You have successfully logged in.',
-			type: 'success'
-		})
+		generateAuthToasts('login', 'success')
 
 		// Логин прошёл успешно — Supabase сам записал cookie с сессией.
 		// router.refresh() заставляет Server Components перерендериться
