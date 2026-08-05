@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { createClient } from '@/shared/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import { ROUTES } from '@/shared/config/routes'
+import { toast } from '@/shared/ui/shadcn/toast'
 
 export function useLoginForm() {
 	const router = useRouter()
@@ -14,8 +15,7 @@ export function useLoginForm() {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors, isValid },
-		setError
+		formState: { errors, isValid }
 	} = useForm<LoginFormValues>({
 		resolver: zodResolver(loginSchema),
 		mode: 'onChange'
@@ -32,16 +32,23 @@ export function useLoginForm() {
 			password
 		})
 
-		console.log('Login error:', error)
-
 		setIsLoading(false)
 
-		console.log(error?.message, 'error.message')
-
 		if (error) {
-			setError('root', { message: error.message })
+			toast.add({
+				title: 'Login failed',
+				description: error.message,
+				type: 'error'
+			})
+
 			return
 		}
+
+		toast.add({
+			title: 'Login successful',
+			description: 'You have successfully logged in.',
+			type: 'success'
+		})
 
 		// Логин прошёл успешно — Supabase сам записал cookie с сессией.
 		// router.refresh() заставляет Server Components перерендериться

@@ -1,5 +1,6 @@
 'use client'
 
+import { Toaster } from '@/shared/ui/shadcn/toast'
 import { ThemeProvider } from './theme-provider'
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -9,6 +10,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 			defaultTheme="system"
 			enableSystem
 		>
+			<Toaster />
 			{children}
 		</ThemeProvider>
 	)
